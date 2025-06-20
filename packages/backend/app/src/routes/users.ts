@@ -61,7 +61,8 @@ usersRoutes.get('/me/profile', authMiddleware, async (c) => {
 })
 
 usersRoutes.get('/hoge', async (c) => {
-  return c.html(`<script>alert("hoge")</script>`)
+  const comment = c.req.query('comment')
+  return c.html(`<html><body><h1>User comment: ${comment}</h1></body></html>`)
 })
 
 export { usersRoutes }
