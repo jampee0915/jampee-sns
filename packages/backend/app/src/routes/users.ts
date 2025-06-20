@@ -60,9 +60,8 @@ usersRoutes.get('/me/profile', authMiddleware, async (c) => {
   }
 })
 
-// わざとSynkで脆弱性を検出できるか検証のためのエンドポイント (XSSの脆弱性を意図的に起こす)
 usersRoutes.get('/hoge', async (c) => {
-  return c.json({ message: '<script>alert("hoge")</script>' })
+  return c.html(`<script>alert("hoge")</script>`)
 })
 
 export { usersRoutes }
