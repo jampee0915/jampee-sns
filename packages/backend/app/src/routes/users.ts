@@ -26,11 +26,11 @@ usersRoutes.get('/:username', async (c) => {
       .select('*', { count: 'exact', head: true })
       .eq('user_id', user.id)
 
-    return c.json({ 
+    return c.json({
       user: {
         ...user,
-        postsCount: postsCount || 0
-      }
+        postsCount: postsCount || 0,
+      },
     })
   } catch (error) {
     console.error('Get user error:', error)
@@ -58,6 +58,11 @@ usersRoutes.get('/me/profile', authMiddleware, async (c) => {
     console.error('Get current user error:', error)
     return c.json({ error: 'Internal server error' }, 500)
   }
+})
+
+// わざとSynkで脆弱性を検出できるか検証のためのエンドポイント (XSSの脆弱性を意図的に起こす)
+usersRoutes.get('/hoge', async (c) => {
+  return c.json({ message: '<script>alert("hoge")</script>' })
 })
 
 export { usersRoutes }
