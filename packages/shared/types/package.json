@@ -1,0 +1,27 @@
+{
+  "name": "@jampee-sns/shared-types",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "type:check": "tsc --noEmit",
+    "lint:check": "eslint \"src/**/*.{js,ts}\"",
+    "lint:fix": "eslint src --fix",
+    "format:check": "prettier --check src",
+    "format:fix": "prettier --write src"
+  },
+  "dependencies": {
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "eslint": "^8.57.0",
+    "prettier": "^3.2.5",
+    "typescript": "^5.4.0"
+  }
+}
