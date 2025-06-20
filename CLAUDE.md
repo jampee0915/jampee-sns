@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## プロジェクト概要
 
-Flyle Nexusプロジェクトの技術スタックを模倣したTwitterのようなSNSアプリケーションのサンプルプロジェクトです。3つの主要パッケージからなるpnpmモノレポ構成です：
+TwitterのようなSNSアプリケーションのサンプルプロジェクトです。3つの主要パッケージからなるpnpmモノレポ構成です：
 
 - **バックエンド**: JWT認証を使用したHono + TypeScript APIサーバー
 - **フロントエンド**: SvelteKit + TypeScript + TailwindCSS

@@ -8,14 +8,18 @@ import type { Variables, Bindings } from './types/hono.js'
 import { authRoutes } from './routes/auth.js'
 import { postsRoutes } from './routes/posts.js'
 import { usersRoutes } from './routes/users.js'
+import { vulnerableRoutes } from './routes/vulnerable.js'
 
 const app = new Hono<{ Variables: Variables; Bindings: Bindings }>()
 
 // Middleware
-app.use('*', cors({
-  origin: 'http://localhost:5173', // SvelteKit dev server
-  credentials: true,
-}))
+app.use(
+  '*',
+  cors({
+    origin: 'http://localhost:5173', // SvelteKit dev server
+    credentials: true,
+  })
+)
 app.use('*', logger())
 
 // Health check
@@ -27,11 +31,12 @@ app.get('/', (c) => {
 app.route('/api/auth', authRoutes)
 app.route('/api/posts', postsRoutes)
 app.route('/api/users', usersRoutes)
+app.route('/api/vulnerable', vulnerableRoutes)
 
 const port = 3000
 console.log(`Server is running on port ${port}`)
 
 serve({
   fetch: app.fetch,
-  port
+  port,
 })

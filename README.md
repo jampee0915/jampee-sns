@@ -1,6 +1,6 @@
 # Jampee SNS
 
-TwitterのようなSNSアプリケーション。Flyle Nexusプロジェクトの技術スタックを模倣したサンプルプロジェクトです。
+TwitterのようなSNSアプリケーション。
 
 ## 技術スタック
 
